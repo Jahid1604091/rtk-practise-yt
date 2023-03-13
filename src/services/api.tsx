@@ -7,8 +7,12 @@ export const api = createApi({
     endpoints:(builder)=>({
         todos:builder.query<Todo[],void>({
             query:()=>`/todos`
+        }),
+        todo:builder.query({
+            query:(id)=>`/todos/${id}`
         })
     })
 });
+console.log(api)
 
-export const {useTodosQuery} = api;
+export const {useTodosQuery,useTodoQuery} = api;

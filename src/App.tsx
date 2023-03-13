@@ -3,10 +3,11 @@ import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
 import { useTodosQuery } from './services/api';
+import TodoDetails from './componets/TodoDetails';
 
 function App() {
-  const {data,error,isFetching,isLoading,isSuccess} = useTodosQuery();
-  console.log(data)
+  const { data, error, isFetching, isLoading, isSuccess } = useTodosQuery();
+
   return (
     <div className="App">
       <h3>Testing tool</h3>
@@ -16,17 +17,20 @@ function App() {
       {
         isSuccess && (
           <>
-          {
-            data?.map(todo=>{
-              return <div key={todo.id}>
-                <h4>Title : {todo.title}</h4>
-                <h5> {todo.completed && 'Done'}</h5>
-              </div>
-            })
-          }
+            {
+              data?.map(todo => {
+                return <div key={todo.id}>
+                  <h4>Title : {todo.title}</h4>
+                  <h5> {todo.completed && 'Done'}</h5>
+                  <TodoDetails id={todo.id} />
+                </div>
+              })
+            }
           </>
         )
       }
+      <h2>Todo Details</h2>
+      
     </div>
   );
 }
