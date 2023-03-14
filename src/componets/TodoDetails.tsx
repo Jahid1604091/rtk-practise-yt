@@ -5,8 +5,8 @@ export default function TodoDetails({id}:{id:number}) {
     const {data} = useTodoQuery(id);
     
   return (
-    <div>{data.title}
-        <strong>User : {data.userId}</strong>
+    <div>{data?.title}
+        <strong>User : {data?.userId}</strong>
     </div>
   )
 }

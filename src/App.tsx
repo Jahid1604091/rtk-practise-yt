@@ -4,6 +4,7 @@ import { Counter } from './features/counter/Counter';
 import './App.css';
 import { useTodosQuery } from './services/api';
 import TodoDetails from './componets/TodoDetails';
+import AddTodo from './componets/AddTodo';
 
 function App() {
   const { data, error, isFetching, isLoading, isSuccess } = useTodosQuery();
@@ -30,7 +31,8 @@ function App() {
         )
       }
       <h2>Todo Details</h2>
-      
+      <h1>Add  a Todo</h1>
+      <AddTodo/>
     </div>
   );
 }
